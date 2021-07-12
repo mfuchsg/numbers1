@@ -19,8 +19,6 @@ void main()
 	}
 	cout << endl;
 	int couter = 0;
-	int couter_2 = 0;
-
 	for (int i = 0; n > i; i++)
 	{
 		for (int j = 0; j < n; j++)
