@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 #define tab "\t"
@@ -6,37 +6,45 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "Russian");
-	const int n = 10;
-	int arr[n];
-	srand(time(0));
+	int max;
+	int min;
+	const int n = 5;
+	int arr[n] = {};
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ñ‡Ð¸ÑÐ»Ð¾: "; cin >> max;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ñ‡Ð¸ÑÐ»Ð¾: "; cin >> min;
 	for (int i = 0; n > i; i++)
 	{
-		arr[i] = rand()%(10-0) ;
+		arr[i] = rand() % (max, min);
 	}
-	for (int i=0; n > i; i++)
+	for (int i = 0; n > i; i++)
 	{
 		cout << arr[i] << tab;
 	}
 	cout << endl;
-	int couter = 0;
-	int couter_2 = 0;
+	int min_element= arr[0];
+	
+	
+	int bufer; 
 
-	for (int i = 0; n > i; i++)
+	
+	for (int i = 0; i < n - 1; i++) 
 	{
-		for (int j = 0; j < n; j++)
+		for (int j = 0; j < n - i - 1; j++) 
 		{
-			
-			if (arr[j] == arr[i])
+			if (arr[j] > arr[j + 1]) 
 			{
-				couter++;
-
+				bufer = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = bufer;
 			}
 		}
-		if (couter > 1)
-		{
-			cout << "×èñëî " << arr[i] << " âñòðå÷àåòñÿ " << couter << " ðàç â ìàññèâå " << endl;
-		}
-		else cout << "×èñëî " << arr[i] << " íå ïîâòîðÿåòñÿ â ìàñèâå"<<endl;
-		couter = 0;
 	}
-}
+
+	
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+ }
+	
+
